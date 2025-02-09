@@ -2,13 +2,29 @@ name: Run backend CI
 on:
   push: 
     paths:
-    - 'backend/**' # only runs when backend folder if any changed 
+      - 'backend/**' # only runs when backend folder changes
   pull_request:
     paths:
       - 'backend/**'
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt  # Ensure dependencies are installed
+
       - name: Run tests
+<<<<<<< HEAD
         run: pytest
+=======
+        run: pytest backend/tests
+>>>>>>> 7721d85 (fixing)
