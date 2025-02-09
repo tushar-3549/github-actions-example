@@ -1,0 +1,9 @@
+name: Deploy only on main branch
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'ref/heads/main'  # only runs on main branch
+    steps:
+      - name: Deploying...
+      run: echo "Deploying to production..."
