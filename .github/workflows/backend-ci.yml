@@ -1,0 +1,14 @@
+name: Run backend CI
+on:
+  push: 
+    paths:
+    - 'backend/**' # only runs when backend folder if any changed 
+  pull_request:
+    paths:
+      - 'backend/**'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+      run: pytest
