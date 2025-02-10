@@ -1,0 +1,21 @@
+# python workflow
+name: Pre defined workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  python_worflow:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository  # github theke code namiye ane jate porer step e kaj korte pare
+        uses: actions/checkout@v4
+
+      - name: Setup Python     # github er official action ja python setup kore 
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Check Python Version 
+        run: python --version 
